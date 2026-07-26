@@ -1,69 +1,40 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Download, Mail, Pause, Play } from 'lucide-react'
-import { useRef, useState, useMemo } from 'react'
+import { motion } from 'framer-motion'
+import { ArrowRight, Download, Mail } from 'lucide-react'
+import { useMemo } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
 import MagnifiedText from '../components/MagnifiedText'
 import { RESUME_URL } from '../data/portfolioData'
 
-function HeroVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(true)
-  const [showIcon, setShowIcon] = useState(false)
-  const iconTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const toggle = () => {
-    if (!videoRef.current) return
-    if (videoRef.current.paused) {
-      videoRef.current.play()
-      setPlaying(true)
-    } else {
-      videoRef.current.pause()
-      setPlaying(false)
-    }
-    setShowIcon(true)
-    if (iconTimeout.current) clearTimeout(iconTimeout.current)
-    iconTimeout.current = setTimeout(() => setShowIcon(false), 900)
-  }
-
+function HeroAvatar() {
   return (
-    <div
-      className="relative h-[420px] cursor-pointer overflow-hidden rounded-[2rem] border border-stone-200 bg-stone-950 shadow-2xl shadow-stone-200/40 backdrop-blur-2xl dark:border-white/10 dark:shadow-amber-950/20"
-      onClick={toggle}
-    >
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.06),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(217,119,6,0.05),_transparent_35%)]" />
+    <div className="relative group max-w-[420px] w-full aspect-square overflow-hidden rounded-[2rem] border border-amber-300/50 bg-gradient-to-b from-amber-50/80 via-orange-50/50 to-amber-100/60 shadow-xl shadow-amber-500/15 backdrop-blur-2xl transition-all duration-500 dark:border-white/10 dark:bg-gradient-to-b dark:from-stone-950/90 dark:via-stone-900/80 dark:to-stone-950/95 dark:shadow-2xl dark:shadow-amber-950/40">
+      {/* Day / Light Mode Ambient Sun Glow */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.35),_transparent_60%),radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.2),_transparent_50%)] transition-opacity duration-500 dark:opacity-0" />
 
-      {/* Full-frame video */}
-      <video
-        ref={videoRef}
-        src="/mayankvideo.mp4"
-        autoPlay
-        playsInline
-        className="h-[420px] w-[420px] object-contain"
+      {/* Night / Dark Mode Ambient Glow */}
+      <div className="pointer-events-none absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.22),_transparent_50%),radial-gradient(circle_at_bottom_right,_rgba(180,83,9,0.18),_transparent_45%)] transition-opacity duration-500 dark:opacity-100" />
+
+      {/* Avatar Image with Light vs Dark Theme Color Filters */}
+      <motion.img
+        src="/avatar.png"
+        alt="Mayank Rai Avatar"
+        className="h-full w-full object-cover object-center brightness-105 contrast-[1.02] saturate-[1.15] sepia-[0.04] transition-all duration-500 group-hover:scale-105 dark:brightness-100 dark:contrast-110 dark:saturate-[1.1] dark:sepia-0"
+        initial={{ scale: 0.95, opacity: 0.9 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6 }}
       />
 
-      {/* Play / Pause icon flash */}
-      <AnimatePresence>
-        {showIcon && (
-          <motion.div
-            key="icon"
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.1 }}
-            transition={{ duration: 0.25 }}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <div className="rounded-full bg-black/50 p-4 backdrop-blur-sm">
-              {playing ? (
-                <Play className="text-white" size={28} fill="white" />
-              ) : (
-                <Pause className="text-white" size={28} fill="white" />
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Theme Color Overlay Tint */}
+      {/* Light Mode Sunlit Warm Tint */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-amber-400/25 via-orange-300/15 to-transparent mix-blend-soft-light opacity-90 transition-opacity duration-500 dark:opacity-0" />
+
+      {/* Dark Mode Cosmic Amber / Violet Tint */}
+      <div className="pointer-events-none absolute inset-0 opacity-0 bg-gradient-to-tr from-amber-600/30 via-indigo-950/20 to-amber-400/10 mix-blend-overlay transition-opacity duration-500 dark:opacity-100" />
+
+      {/* Decorative Border Ring & Theme Vignette */}
+      <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-amber-500/20 transition-all duration-500 dark:ring-white/10" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-amber-200/40 via-transparent to-transparent opacity-60 transition-all duration-500 dark:from-stone-950/70 dark:opacity-80" />
     </div>
   )
 }
@@ -132,9 +103,10 @@ export default function Hero({ heroRef }: HeroProps) {
           transition={{ duration: 0.9, delay: 0.1 }}
           className="relative flex items-center justify-center"
         >
-          <HeroVideo />
+          <HeroAvatar />
         </motion.div>
       </div>
     </section>
   )
 }
+
