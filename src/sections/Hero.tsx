@@ -24,11 +24,11 @@ export default function Hero({ heroRef }: HeroProps) {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-stone-100 text-stone-900 transition-colors duration-500 dark:bg-[#0d0d0d] dark:text-white"
+      className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-[#0d0d0d] text-white"
     >
       {/* Ambient lighting glows */}
       <div className="pointer-events-none absolute -left-20 top-1/4 h-[450px] w-[450px] rounded-full bg-amber-500/10 blur-[130px]" />
-      <div className="pointer-events-none absolute right-0 top-1/3 h-[550px] w-[550px] rounded-full bg-amber-500/15 blur-[150px] dark:bg-amber-600/15" />
+      <div className="pointer-events-none absolute right-0 top-1/3 h-[550px] w-[550px] rounded-full bg-amber-600/15 blur-[150px]" />
 
       {/* Content row */}
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] max-w-[1600px] items-center px-6 lg:px-12">
@@ -41,24 +41,21 @@ export default function Hero({ heroRef }: HeroProps) {
             className="lg:col-span-5 flex flex-col justify-center space-y-6 py-16 lg:py-0"
           >
             <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl leading-[1.1]">
-              <span className="block text-stone-900 dark:text-white">
+              <span className="block text-white">
                 <MagnifiedText text="Hello, I'm" />
               </span>
-              <span className="block text-amber-600 dark:text-[#f3b137] mt-1">
-                <MagnifiedText text="Mayank Rai" className="text-amber-600 dark:text-[#f3b137]" />
+              <span className="block text-[#f3b137] mt-1">
+                <MagnifiedText text="Mayank Rai" className="text-[#f3b137]" />
               </span>
             </h1>
 
-            <div className="space-y-1.5 text-xl sm:text-2xl font-semibold tracking-wide text-stone-800 dark:text-stone-200">
+            <div className="space-y-1.5 text-xl sm:text-2xl font-semibold tracking-wide text-stone-200">
               <p className="flex flex-wrap items-center gap-x-2">
-                <span className="text-stone-700 dark:text-stone-300">I build things for web.</span>
-                <span className="text-amber-600 dark:text-[#f3b137]">• Frontend Engineer</span>
-              </p>
-              <p className="text-amber-600 dark:text-[#f3b137]">• Backend Engineer</p>
-              <p className="text-orange-600 dark:text-[#ea580c]">• AI Enthusiast</p>
+                <span className="text-stone-300">I am a Full Stack Developer.</span>
+              </p> 
             </div>
 
-            <p className="max-w-xl text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400">
+            <p className="max-w-xl text-base sm:text-lg leading-relaxed text-stone-400">
               I am passionate web developer specializing in building exceptional digital experiences with modern technologies.
             </p>
 
@@ -76,7 +73,7 @@ export default function Hero({ heroRef }: HeroProps) {
                 href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-stone-200/80 px-6 py-3.5 text-base font-medium text-stone-800 backdrop-blur transition-all hover:border-stone-400 hover:bg-stone-300 dark:border-stone-800 dark:bg-stone-900/90 dark:text-stone-200 dark:hover:border-stone-600 dark:hover:bg-stone-800 dark:hover:text-white active:scale-95"
+                className="inline-flex items-center gap-2 rounded-full border border-stone-800 bg-stone-900/90 px-6 py-3.5 text-base font-medium text-stone-200 backdrop-blur transition-all hover:border-stone-600 hover:bg-stone-800 hover:text-white active:scale-95"
               >
                 <Download size={18} />
                 Download Resume
@@ -92,7 +89,7 @@ export default function Hero({ heroRef }: HeroProps) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-stone-300/80 bg-stone-200/80 text-stone-700 transition-all hover:border-amber-500 hover:bg-white hover:text-amber-600 hover:scale-105 dark:border-stone-800/80 dark:bg-stone-900/80 dark:text-stone-300 dark:hover:border-amber-500/50 dark:hover:bg-stone-800 dark:hover:text-amber-400 active:scale-95"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-stone-800/80 bg-stone-900/80 text-stone-300 transition-all hover:border-amber-500/50 hover:bg-stone-800 hover:text-amber-400 hover:scale-105 active:scale-95"
                 >
                   <Icon size={19} />
                 </a>
@@ -106,7 +103,8 @@ export default function Hero({ heroRef }: HeroProps) {
         </div>
       </div>
 
-      {/* Full-bleed 3D character illustration — desktop only, anchored bottom-right */}
+      {/* Full-bleed 3D character illustration — desktop only, anchored bottom-right,
+          allowed to run past the right edge of the viewport like the reference design. */}
       <motion.div
         initial={{ opacity: 0, x: 40, scale: 0.97 }}
         animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -116,11 +114,12 @@ export default function Hero({ heroRef }: HeroProps) {
         <img
           src="/hero-character.png"
           alt="Mayank Rai 3D Developer Workstation"
-          className="h-[100%] w-auto max-w-none origin-bottom-right object-contain object-right-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] dark:drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)] [mask-image:linear-gradient(to_right,transparent_0%,black_8%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_8%)]"
+          className="h-[100%] w-auto max-w-none origin-bottom-right object-contain object-right-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)] [mask-image:linear-gradient(to_right,transparent_0%,black_8%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_8%)]"
         />
       </motion.div>
 
-      {/* Mobile / tablet — image shown inline below the text */}
+      {/* Mobile / tablet — image shown inline below the text, contained and centered.
+          No mask needed here since the whole image sits on the same dark background. */}
       <div className="relative z-10 mx-auto -mt-6 max-w-md px-6 pb-14 lg:hidden">
         <img
           src="/hero-character.png"
