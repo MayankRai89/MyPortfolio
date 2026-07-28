@@ -1,4 +1,4 @@
-import { useScroll, useTransform, useSpring, motion } from 'framer-motion'
+import { useScroll, useTransform, useSpring } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 
 interface ScrollFrameCanvasProps {
