@@ -1,4 +1,4 @@
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { useScroll, useTransform, useSpring, motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 
 interface ScrollFrameCanvasProps {
@@ -22,11 +22,18 @@ export default function ScrollFrameCanvas({
   // Track scroll position of the hero section container
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end'],
+    offset: ['start 85%', 'end 0%'],
   })
 
-  // Map scroll progress (0 to 1) to frame index (1 to totalFrames)
-  const frameIndexMotion = useTransform(scrollYProgress, [0, 1], [1, totalFrames])
+  // Apply gentle spring physics to smooth out scroll rate and prevent fast frame jumps
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 45,
+    damping: 22,
+    restDelta: 0.001,
+  })
+
+  // Map smooth scroll progress (0 to 1) to frame index (1 to totalFrames)
+  const frameIndexMotion = useTransform(smoothProgress, [0, 1], [1, totalFrames])
 
   // Preload all frame images
   useEffect(() => {

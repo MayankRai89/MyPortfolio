@@ -4,7 +4,6 @@ import { useMemo } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
 import MagnifiedText from '../components/MagnifiedText'
-import ScrollFrameCanvas from '../components/ScrollFrameCanvas'
 import { RESUME_URL } from '../data/portfolioData'
 
 type HeroProps = {
@@ -23,68 +22,112 @@ export default function Hero({ heroRef }: HeroProps) {
   )
 
   return (
-    <section ref={heroRef} className="relative px-6 py-16 sm:py-24 lg:px-8 lg:py-28 min-h-[150vh]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,_rgba(245,158,11,0.12),_transparent_24%),radial-gradient(circle_at_80%_0%,_rgba(217,119,6,0.1),_transparent_30%)]" />
-      <div className="mx-auto grid max-w-[1400px] items-start gap-10 lg:grid-cols-[1fr_1.1fr]">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 lg:sticky lg:top-28"
-        >
-          <h1 className="max-w-3xl text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
-            <MagnifiedText text="Hello, I'm " />
-            <MagnifiedText text="Mayank Rai" className="bg-gradient-to-r from-amber-200 via-orange-300 to-amber-400 bg-clip-text text-amber-300" />
-          </h1>
-          <div className="mt-6 text-2xl font-medium sm:text-3xl text-stone-700 dark:text-stone-300">
-            <span className="mr-3">I build things for web.</span>
-            <span className="text-amber-600 dark:text-amber-400">• Frontend Engineer</span>
-            <br />
-            <span className="text-amber-600 dark:text-amber-400">• Backend Engineer</span>
-            <br />
-            <span className="text-orange-600 dark:text-orange-400">  • AI Enthusiast</span>
-          </div>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-600 dark:text-stone-400">
-            I am passionate web developer specializing in building exceptional digital experiences with modern technologies.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-amber-500 px-5 py-3 font-medium text-stone-950 transition hover:-translate-y-0.5 hover:bg-amber-400">
-              View my Work <ArrowRight className="transition group-hover:translate-x-1" size={18} />
-            </a>
-            <a
-              href={RESUME_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-stone-100 px-5 py-3 font-medium text-stone-700 backdrop-blur transition hover:-translate-y-0.5 hover:bg-stone-200 dark:border-white/10 dark:bg-white/10 dark:text-stone-200 dark:hover:bg-white/20"
-            >
-              <Download size={18} /> Download Resume
-            </a>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {socialLinks.map(({ href, label, icon: Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-full border border-stone-300 bg-white/80 p-3 text-stone-600 transition hover:-translate-y-1 hover:border-amber-500/40 hover:text-amber-600 dark:border-white/10 dark:bg-stone-900/70 dark:text-stone-300 dark:hover:border-amber-500/40 dark:hover:text-amber-400">
-                <Icon size={18} />
-                <span className="sr-only">{label}</span>
+    <section
+      ref={heroRef}
+      className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-stone-100 text-stone-900 transition-colors duration-500 dark:bg-[#0d0d0d] dark:text-white"
+    >
+      {/* Ambient lighting glows */}
+      <div className="pointer-events-none absolute -left-20 top-1/4 h-[450px] w-[450px] rounded-full bg-amber-500/10 blur-[130px]" />
+      <div className="pointer-events-none absolute right-0 top-1/3 h-[550px] w-[550px] rounded-full bg-amber-500/15 blur-[150px] dark:bg-amber-600/15" />
+
+      {/* Content row */}
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] max-w-[1600px] items-center px-6 lg:px-12">
+        <div className="grid w-full items-center gap-8 lg:grid-cols-12">
+          {/* Left Side Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="lg:col-span-5 flex flex-col justify-center space-y-6 py-16 lg:py-0"
+          >
+            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl leading-[1.1]">
+              <span className="block text-stone-900 dark:text-white">
+                <MagnifiedText text="Hello, I'm" />
+              </span>
+              <span className="block text-amber-600 dark:text-[#f3b137] mt-1">
+                <MagnifiedText text="Mayank Rai" className="text-amber-600 dark:text-[#f3b137]" />
+              </span>
+            </h1>
+
+            <div className="space-y-1.5 text-xl sm:text-2xl font-semibold tracking-wide text-stone-800 dark:text-stone-200">
+              <p className="flex flex-wrap items-center gap-x-2">
+                <span className="text-stone-700 dark:text-stone-300">I build things for web.</span>
+                <span className="text-amber-600 dark:text-[#f3b137]">• Frontend Engineer</span>
+              </p>
+              <p className="text-amber-600 dark:text-[#f3b137]">• Backend Engineer</p>
+              <p className="text-orange-600 dark:text-[#ea580c]">• AI Enthusiast</p>
+            </div>
+
+            <p className="max-w-xl text-base sm:text-lg leading-relaxed text-stone-600 dark:text-stone-400">
+              I am passionate web developer specializing in building exceptional digital experiences with modern technologies.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#f59e0b] px-7 py-3.5 text-base font-semibold text-black transition-all hover:bg-[#d97706] hover:shadow-lg hover:shadow-amber-500/25 active:scale-95"
+              >
+                View my Work
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </a>
-            ))}
-          </div>
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.1 }}
-          className="relative flex items-center justify-center lg:sticky lg:top-28"
-        >
-          <ScrollFrameCanvas
-            containerRef={heroRef}
-            totalFrames={60}
-            getFramePath={(i) => `/hero-frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`}
-          />
-        </motion.div>
+
+              <a
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-stone-200/80 px-6 py-3.5 text-base font-medium text-stone-800 backdrop-blur transition-all hover:border-stone-400 hover:bg-stone-300 dark:border-stone-800 dark:bg-stone-900/90 dark:text-stone-200 dark:hover:border-stone-600 dark:hover:bg-stone-800 dark:hover:text-white active:scale-95"
+              >
+                <Download size={18} />
+                Download Resume
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-3 pt-3">
+              {socialLinks.map(({ href, label, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-stone-300/80 bg-stone-200/80 text-stone-700 transition-all hover:border-amber-500 hover:bg-white hover:text-amber-600 hover:scale-105 dark:border-stone-800/80 dark:bg-stone-900/80 dark:text-stone-300 dark:hover:border-amber-500/50 dark:hover:bg-stone-800 dark:hover:text-amber-400 active:scale-95"
+                >
+                  <Icon size={19} />
+                </a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Empty spacer column so left content stays within the left ~40% on desktop.
+              The actual illustration is full-bleed and absolutely positioned below. */}
+          <div className="hidden lg:col-span-7 lg:block" />
+        </div>
+      </div>
+
+      {/* Full-bleed 3D character illustration — desktop only, anchored bottom-right */}
+      <motion.div
+        initial={{ opacity: 0, x: 40, scale: 0.97 }}
+        animate={{ opacity: 1, x: 0, scale: 1 }}
+        transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
+        className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-[62%] items-end justify-end overflow-hidden lg:flex"
+      >
+        <img
+          src="/hero-character.png"
+          alt="Mayank Rai 3D Developer Workstation"
+          className="h-[100%] w-auto max-w-none origin-bottom-right object-contain object-right-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] dark:drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)] [mask-image:linear-gradient(to_right,transparent_0%,black_8%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_8%)]"
+        />
+      </motion.div>
+
+      {/* Mobile / tablet — image shown inline below the text */}
+      <div className="relative z-10 mx-auto -mt-6 max-w-md px-6 pb-14 lg:hidden">
+        <img
+          src="/hero-character.png"
+          alt="Mayank Rai 3D Developer Workstation"
+          className="h-auto w-full object-contain"
+        />
       </div>
     </section>
   )
 }
-
-
