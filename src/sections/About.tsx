@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { BrainCircuit, ChevronDown, Sparkles } from 'lucide-react'
+import { BrainCircuit, ChevronDown, Sparkles, ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 import GlassCard from '../components/GlassCard'
 import SectionHeading from '../components/SectionHeading'
@@ -7,18 +7,18 @@ import { timeline } from '../data/portfolioData'
 
 export default function About() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>(() =>
-    timeline.reduce((acc, item) => ({ ...acc, [item.year]: true }), {})
+    timeline.reduce((acc, item) => ({ ...acc, [item.title]: true }), {})
   )
 
-  const toggleItem = (year: string) => {
-    setOpenItems((prev) => ({ ...prev, [year]: !prev[year] }))
+  const toggleItem = (title: string) => {
+    setOpenItems((prev) => ({ ...prev, [title]: !prev[title] }))
   }
 
   const allOpen = Object.values(openItems).every(Boolean)
   const toggleAll = () => {
     const nextState = !allOpen
     setOpenItems(
-      timeline.reduce((acc, item) => ({ ...acc, [item.year]: nextState }), {})
+      timeline.reduce((acc, item) => ({ ...acc, [item.title]: nextState }), {})
     )
   }
 
@@ -62,16 +62,16 @@ export default function About() {
             </div>
 
             <div data-lenis-prevent className="no-scrollbar mt-4 flex-1 overflow-y-auto pl-6 pr-2 py-1 overscroll-contain">
-              <div className="relative space-y-4 pl-6 border-l-2 border-amber-500/40 dark:border-amber-500/50 ml-1">
+              <div className="relative space-y-4 pl-6 border-l-2 border-amber-500/40 dark:amber-500/50 ml-1">
                 {timeline.map((item) => {
-                  const isOpen = !!openItems[item.year]
+                  const isOpen = !!openItems[item.title]
                   return (
-                    <div key={item.year} className="relative group">
+                    <div key={item.title} className="relative group">
                       {/* Timeline Node Bullet */}
                       <div className="absolute -left-[31px] top-4 h-3.5 w-3.5 rounded-full border-2 border-amber-500 bg-stone-100 dark:bg-stone-900 transition-transform duration-300 group-hover:scale-125 group-hover:bg-amber-500 shadow-sm shadow-amber-500/40" />
 
                       <div
-                        onClick={() => toggleItem(item.year)}
+                        onClick={() => toggleItem(item.title)}
                         className="cursor-pointer rounded-2xl border border-stone-200/60 bg-stone-100/50 p-4 transition-all duration-300 hover:border-amber-500/40 dark:border-white/10 dark:bg-stone-900/40 dark:hover:border-amber-500/40"
                       >
                         <div className="flex items-center justify-between">
@@ -106,19 +106,33 @@ export default function About() {
                                 {item.detail}
                               </p>
 
-                              {item.tags && item.tags.length > 0 && (
-                                <div className="mt-3 flex flex-wrap gap-2 pt-2 border-t border-stone-200/40 dark:border-white/5">
-                                  {item.tags.map((tag) => (
-                                    <span
-                                      key={tag}
-                                      className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2.5 py-0.5 text-xs font-medium text-amber-600 dark:bg-amber-400/10 dark:text-amber-400"
-                                    >
-                                      <Sparkles size={10} />
-                                      {tag}
-                                    </span>
-                                  ))}
-                                </div>
-                              )}
+                              <div className="mt-3 flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-stone-200/40 dark:border-white/5">
+                                {item.tags && item.tags.length > 0 && (
+                                  <div className="flex flex-wrap gap-2">
+                                    {item.tags.map((tag) => (
+                                      <span
+                                        key={tag}
+                                        className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2.5 py-0.5 text-xs font-medium text-amber-600 dark:bg-amber-400/10 dark:text-amber-400"
+                                      >
+                                        <Sparkles size={10} />
+                                        {tag}
+                                      </span>
+                                    ))}
+                                  </div>
+                                )}
+
+                                {item.link && (
+                                  <a
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="inline-flex items-center gap-1 text-xs font-medium text-amber-600 dark:text-amber-400 hover:underline"
+                                  >
+                                    Live Link <ExternalLink size={12} />
+                                  </a>
+                                )}
+                              </div>
                             </motion.div>
                           )}
                         </AnimatePresence>

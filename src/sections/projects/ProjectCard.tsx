@@ -58,10 +58,29 @@ export default function ProjectCard({ project, index, total, category }: Props) 
         </div>
 
         <div className="flex gap-3">
-          <a href="#contact" className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-950 text-white dark:bg-white dark:text-stone-950 text-sm font-medium hover:scale-[1.03] transition shadow-lg">
-            Live Demo <ExternalLink size={14} />
-          </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-stone-300 dark:border-white/10 text-stone-700 dark:text-stone-200 text-sm font-medium hover:scale-[1.03] transition">
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-950 text-white dark:bg-white dark:text-stone-950 text-sm font-medium hover:scale-[1.03] transition shadow-lg"
+            >
+              Live Demo <ExternalLink size={14} />
+            </a>
+          ) : (
+            <a
+              href="#contact"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-950 text-white dark:bg-white dark:text-stone-950 text-sm font-medium hover:scale-[1.03] transition shadow-lg"
+            >
+              Contact <ExternalLink size={14} />
+            </a>
+          )}
+          <a
+            href={project.githubUrl || "https://github.com"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-stone-300 dark:border-white/10 text-stone-700 dark:text-stone-200 text-sm font-medium hover:scale-[1.03] transition"
+          >
             <FaGithub size={14} /> GitHub
           </a>
         </div>

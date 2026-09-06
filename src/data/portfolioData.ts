@@ -22,6 +22,8 @@ export type Project = {
   features: string[]
   stack: string[]
   accent: string
+  liveUrl?: string
+  githubUrl?: string
 }
 
 export type TimelineItem = {
@@ -29,6 +31,7 @@ export type TimelineItem = {
   title: string
   detail: string
   tags?: string[]
+  link?: string
 }
 
 export type SkillInfo = {
@@ -132,6 +135,7 @@ export const fullStackProjects: Project[] = [
     features: ['Live donor matching', 'Instant chat updates', 'AI chatbot workflows'],
     stack: ['React', 'Node.js', 'MongoDB', 'Socket.IO', 'AI Chatbot'],
     accent: 'from-amber-600/15 to-orange-700/15',
+    liveUrl: 'https://blood-bank-tan.vercel.app/',
   },
   {
   title: 'SNITCH',
@@ -149,7 +153,8 @@ export const timeline: TimelineItem[] = [
     year: '2026',
     title: 'Blood Bank Management System',
     detail: 'Designed and deployed a full-stack blood bank platform with real-time donor-recipient matching via Socket.IO and an AI chatbot powered by Groq/Llama 3, backed by a complete SRS as part of a university project.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Socket.IO', 'Groq/Llama 3']
+    tags: ['React', 'Node.js', 'MongoDB', 'Socket.IO', 'Groq/Llama 3'],
+    link: 'https://blood-bank-tan.vercel.app/'
   },
   {
     year: '2026',
