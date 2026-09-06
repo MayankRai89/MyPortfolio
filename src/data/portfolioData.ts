@@ -134,13 +134,14 @@ export const fullStackProjects: Project[] = [
     accent: 'from-amber-600/15 to-orange-700/15',
   },
   {
-    title: 'BranchBridge',
-    subtitle: 'Career Guidance Platform',
-    description: 'A modern guidance platform that helps learners discover career paths with thoughtful recommendations and interactive dashboards.',
-    features: ['Career roadmaps', 'Personalized recommendations', 'Analytics insights'],
-    stack: ['React', 'Express', 'MySQL'],
-    accent: 'from-stone-600/15 to-amber-700/15',
-  },
+  title: 'SNITCH',
+  subtitle: 'D2C Apparel & Lifestyle E-Store',
+  description: 'A sleek, mobile-first fashion e-commerce storefront delivering rapid product discovery, lookbook carousels, instant bag updates, and customer purchase analytics.',
+  features: ['Seamless checkout & bag sync', 'Smart recommendation engine', 'Interactive product showcases'],
+  stack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+  accent: 'from-amber-700/15 to-orange-600/15',
+},
+
 ]
 
 export const timeline: TimelineItem[] = [
@@ -151,10 +152,10 @@ export const timeline: TimelineItem[] = [
     tags: ['React', 'Node.js', 'MongoDB', 'Socket.IO', 'Groq/Llama 3']
   },
   {
-    year: '2025 - 2026',
-    title: 'BranchBridge — EdTech Career Guidance',
-    detail: 'Built an edtech platform helping Class 10-12 students choose academic streams and engineering branches, including a custom quiz question bank and guided decision flows.',
-    tags: ['EdTech', 'Product Design', 'Full-Stack', 'Career Guidance']
+    year: '2025',
+    title: 'SNITCH — D2C E-Commerce Platform',
+    detail: 'Architected and built a modern full-stack fashion e-commerce storefront featuring dynamic product filtering, persistent shopping cart synchronization, and PostgreSQL-backed order processing.',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'E-Commerce']
   },
   {
     year: '2024',
