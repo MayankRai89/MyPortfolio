@@ -1,5 +1,5 @@
 import type { IconType } from 'react-icons'
-import { 
+import {
   SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5, SiCss,
   SiNodedotjs, SiExpress, SiFastapi, SiPostgresql, SiMongodb, SiMysql, SiRedis,
   SiPython, SiGoogle, SiDocker, SiGit, SiGithub, SiLinux, SiLangchain,
@@ -8,7 +8,8 @@ import {
 } from 'react-icons/si'
 import { FaServer, FaDatabase, FaJava, FaBrain, FaAws, FaChartLine } from 'react-icons/fa'
 
-export const RESUME_URL = 'https://drive.google.com/file/d/1w3fCCVr04Cslf0FCl2c2wpPoccaHxEB0/view?usp=drive_link'
+
+export const RESUME_URL = 'https://drive.google.com/file/d/1TJp0xLJYq8bf-Ps0e_ARteMDWFc9-ggr/view?usp=sharing'
 
 export type SkillGroup = {
   title: string
@@ -138,13 +139,13 @@ export const fullStackProjects: Project[] = [
     liveUrl: 'https://blood-bank-tan.vercel.app/',
   },
   {
-  title: 'SNITCH',
-  subtitle: 'D2C Apparel & Lifestyle E-Store',
-  description: 'A sleek, mobile-first fashion e-commerce storefront delivering rapid product discovery, lookbook carousels, instant bag updates, and customer purchase analytics.',
-  features: ['Seamless checkout & bag sync', 'Smart recommendation engine', 'Interactive product showcases'],
-  stack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
-  accent: 'from-amber-700/15 to-orange-600/15',
-},
+    title: 'SNITCH',
+    subtitle: 'D2C Apparel & Lifestyle E-Store',
+    description: 'A sleek, mobile-first fashion e-commerce storefront delivering rapid product discovery, lookbook carousels, instant bag updates, and customer purchase analytics.',
+    features: ['Seamless checkout & bag sync', 'Smart recommendation engine', 'Interactive product showcases'],
+    stack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    accent: 'from-amber-700/15 to-orange-600/15',
+  },
 
 ]
 
