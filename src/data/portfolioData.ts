@@ -9,7 +9,7 @@ import {
 import { FaServer, FaDatabase, FaJava, FaBrain, FaAws, FaChartLine } from 'react-icons/fa'
 
 
-export const RESUME_URL = 'https://drive.google.com/file/d/1TJp0xLJYq8bf-Ps0e_ARteMDWFc9-ggr/view?usp=sharing'
+export const RESUME_URL = 'https://drive.google.com/file/d/1TJp0xLJYq8bf-Ps0e_ARteMDWFc9-ggr/view?usp=drive_link'
 
 export type SkillGroup = {
   title: string
