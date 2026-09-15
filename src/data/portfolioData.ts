@@ -162,7 +162,8 @@ export const timeline: TimelineItem[] = [
     year: '2026',
     title: 'SNITCH — D2C E-Commerce Platform',
     detail: 'Architected and built a modern full-stack fashion e-commerce storefront featuring dynamic product filtering, persistent shopping cart synchronization, and PostgreSQL-backed order processing.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'E-Commerce']
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'E-Commerce'],
+    link: 'https://snitch-one.vercel.app/'
   },
   {
     year: '2024',
