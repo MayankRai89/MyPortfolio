@@ -145,6 +145,7 @@ export const fullStackProjects: Project[] = [
     features: ['Seamless checkout & bag sync', 'Smart recommendation engine', 'Interactive product showcases'],
     stack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
     accent: 'from-amber-700/15 to-orange-600/15',
+    liveUrl: 'https://snitch-one.vercel.app/',
   },
 
 ]
