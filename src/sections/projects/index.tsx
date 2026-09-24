@@ -64,7 +64,7 @@ const CATEGORIES: CategoryConfig[] = [
   {
     id: 'fullstack',
     label: 'Full Stack',
-    sublabel: 'React • Node • MongoDB',
+    sublabel: 'Perplexity • React • Node',
     icon: Layers,
     accentHex: '#F59E0B',
     accentBg: 'from-amber-500/8 to-orange-400/5',

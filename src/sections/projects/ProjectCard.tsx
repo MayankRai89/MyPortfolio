@@ -1,6 +1,7 @@
 import { ExternalLink } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
-import { Rocket, MonitorSmartphone } from 'lucide-react'
+import { Rocket, MonitorSmartphone, Sparkles } from 'lucide-react'
+import { SiPerplexity } from 'react-icons/si'
 import { skillDetailsMap } from '../../data/portfolioData'
 import type { Project } from '../../data/portfolioData'
 import { motion } from 'framer-motion'
@@ -8,6 +9,8 @@ import { motion } from 'framer-motion'
 type Props = { project: Project; index: number; total: number; category: string }
 
 export default function ProjectCard({ project, index, total, category }: Props) {
+  const isPerplexity = project.title.toLowerCase().includes('perplexity')
+
   return (
     <div className="relative h-full w-full flex flex-col lg:flex-row items-center gap-10 px-8 md:px-20 py-10 max-w-7xl mx-auto">
       
@@ -100,11 +103,18 @@ export default function ProjectCard({ project, index, total, category }: Props) 
           <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-orange-600/10" />
          
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-            <div className="h-16 w-16 rounded-full border border-amber-500/30 bg-amber-500/10 flex items-center justify-center text-amber-500">
-              <Rocket size={28} />
+            <div className={`h-16 w-16 rounded-full border flex items-center justify-center ${
+              isPerplexity 
+                ? 'border-teal-500/40 bg-teal-500/15 text-teal-400' 
+                : 'border-amber-500/30 bg-amber-500/10 text-amber-500'
+            }`}>
+              {isPerplexity ? <SiPerplexity size={30} /> : <Rocket size={28} />}
             </div>
-            <h4 className="text-lg font-semibold text-stone-900 dark:text-white">{project.title}</h4>
-            <p className="text-xs text-stone-500 dark:text-stone-400">{project.subtitle}</p>
+            <div className="flex items-center gap-1.5">
+              {isPerplexity && <Sparkles size={14} className="text-teal-400 animate-pulse" />}
+              <h4 className="text-lg font-semibold text-stone-900 dark:text-white">{project.title}</h4>
+            </div>
+            <p className="text-xs text-stone-500 dark:text-stone-400 max-w-xs">{project.subtitle}</p>
           </div>
         </motion.div>
       </div>

@@ -4,7 +4,7 @@ import {
   SiNodedotjs, SiExpress, SiFastapi, SiPostgresql, SiMongodb, SiMysql, SiRedis,
   SiPython, SiGoogle, SiDocker, SiGit, SiGithub, SiLinux, SiLangchain,
   SiFramer, SiThreedotjs, SiSocketdotio, SiHuggingface,
-  SiSupabase
+  SiSupabase, SiPerplexity
 } from 'react-icons/si'
 import { FaServer, FaDatabase, FaJava, FaBrain, FaAws, FaChartLine } from 'react-icons/fa'
 
@@ -79,6 +79,8 @@ export const skillDetailsMap: Record<string, SkillInfo> = {
   'Sentence Transformers': { icon: SiHuggingface, color: '#FFD21E', glowClass: 'rgba(255, 210, 30, 0.4)' },
   'AI Chatbot': { icon: FaBrain, color: '#009688', glowClass: 'rgba(0, 150, 136, 0.4)' },
   'Supabase': { icon: SiSupabase, color: '#009688', glowClass: 'rgba(0, 150, 136, 0.4)' },
+  'Perplexity AI': { icon: SiPerplexity, color: '#20B2AA', glowClass: 'rgba(32, 178, 170, 0.4)' },
+  'Perplexity API': { icon: SiPerplexity, color: '#20B2AA', glowClass: 'rgba(32, 178, 170, 0.4)' },
 }
 
 export const skillGroups: SkillGroup[] = [
@@ -86,7 +88,7 @@ export const skillGroups: SkillGroup[] = [
   { title: 'Backend', items: ['Node.js', 'Express.js', 'FastAPI', 'REST APIs'] },
   { title: 'Database', items: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Supabase'] },
   { title: 'Programming', items: ['Java', 'SQL'] },
-  { title: 'AI & ML', items: ['LangChain', 'OpenAI API', 'Gemini API', 'RAG', 'Vector Databases'] },
+  { title: 'AI & ML', items: ['LangChain', 'OpenAI API', 'Gemini API', 'Perplexity AI', 'RAG', 'Vector Databases'] },
   { title: 'Tools', items: ['Git', 'Docker', 'GitHub', 'Linux', 'AWS'] },
 ]
 
@@ -130,6 +132,16 @@ export const backendProjects: Project[] = [
 
 export const fullStackProjects: Project[] = [
   {
+    title: 'Perplexity AI Clone',
+    subtitle: 'Next.js • LangChain • Vector Search • Tailwind CSS',
+    description: 'An AI-powered conversational search and research engine inspired by Perplexity AI, featuring real-time web retrieval, inline citation indexing, streaming responses, and focus-mode exploration.',
+    features: ['Real-time web search & synthesis', 'Source citations & verified links', 'Streaming LLM answers & follow-ups', 'Focus search modes (Web, Academic, Code)'],
+    stack: ['React', 'Next.js', 'TypeScript', 'LangChain', 'Perplexity AI', 'Tailwind CSS', 'Vector Databases'],
+    accent: 'from-teal-600/15 to-cyan-700/15',
+    liveUrl: 'https://perplexity-jade.vercel.app/',
+    githubUrl: 'https://github.com/MayankRai89/Perplexity',
+  },
+  {
     title: 'Blood Bank Management System',
     subtitle: 'React • Node.js • MongoDB • Socket.IO',
     description: 'A resilient healthcare platform that streamlines donor coordination with real-time communication and an AI assistant for support.',
@@ -147,10 +159,16 @@ export const fullStackProjects: Project[] = [
     accent: 'from-amber-700/15 to-orange-600/15',
     liveUrl: 'https://snitch-one.vercel.app/',
   },
-
 ]
 
 export const timeline: TimelineItem[] = [
+  {
+    year: '2026',
+    title: 'Perplexity AI Clone & Search Engine',
+    detail: 'Engineered an AI-powered conversational search engine with live web retrieval, markdown citation cards, streaming multi-modal synthesis, and contextual follow-up generation.',
+    tags: ['React', 'Next.js', 'LangChain', 'Perplexity API', 'Vector DB', 'Tailwind CSS'],
+    link: 'https://perplexity-jade.vercel.app/'
+  },
   {
     year: '2026',
     title: 'Blood Bank Management System',
