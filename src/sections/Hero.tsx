@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
 import MagnifiedText from '../components/MagnifiedText'
-import { RESUME_URL } from '../data/portfolioData'
+import { RESUME_URL, GITHUB_URL, LINKEDIN_URL, LEETCODE_URL, EMAIL_URL } from '../data/portfolioData'
 
 type HeroProps = {
   heroRef: React.RefObject<HTMLDivElement | null>
@@ -13,10 +13,10 @@ type HeroProps = {
 export default function Hero({ heroRef }: HeroProps) {
   const socialLinks = useMemo(
     () => [
-      { href: 'https://github.com/MayankRai89', label: 'GitHub', icon: FaGithub },
-      { href: 'https://www.linkedin.com/in/mayank-rai-4509581b0', label: 'LinkedIn', icon: FaLinkedin },
-      { href: 'https://leetcode.com/u/MayankRai89/', label: 'LeetCode', icon: SiLeetcode },
-      { href: 'mailto:raimayank245@gmail.com', label: 'Email', icon: Mail },
+      { href: GITHUB_URL, label: 'GitHub', icon: FaGithub },
+      { href: LINKEDIN_URL, label: 'LinkedIn', icon: FaLinkedin },
+      { href: LEETCODE_URL, label: 'LeetCode', icon: SiLeetcode },
+      { href: EMAIL_URL, label: 'Email', icon: Mail },
     ],
     [],
   )

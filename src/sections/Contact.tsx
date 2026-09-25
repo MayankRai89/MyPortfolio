@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { Mail } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { SiLeetcode } from 'react-icons/si'
 import GlassCard from '../components/GlassCard'
 import SectionHeading from '../components/SectionHeading'
+import { GITHUB_URL, LEETCODE_URL, LINKEDIN_URL, EMAIL_URL } from '../data/portfolioData'
 
 export default function Contact() {
   return (
@@ -19,9 +21,10 @@ export default function Contact() {
             <div>
               <SectionHeading eyebrow="Contact" title="Let’s build something ambitious together" description="Reach out for collaborations, freelance opportunities, or product engineering conversations." />
               <div className="mt-8 space-y-4 text-stone-600 dark:text-stone-400">
-                <a href="mailto:mayank@example.com" className="flex items-center gap-3 transition hover:text-amber-600 dark:hover:text-amber-400"><Mail size={18} /> raimayank245@gmail.com</a>
-                <a href="https://github.com" className="flex items-center gap-3 transition hover:text-amber-600 dark:hover:text-amber-400"><FaGithub size={18} /> github.com/MayankRai89</a>
-                <a href="https://linkedin.com" className="flex items-center gap-3 transition hover:text-amber-600 dark:hover:text-amber-400"><FaLinkedin size={18} /> linkedin.com/in/mayank-rai-4509581b0</a>
+                <a href={EMAIL_URL} className="flex items-center gap-3 transition hover:text-amber-600 dark:hover:text-amber-400"><Mail size={18} /> raimayank245@gmail.com</a>
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 transition hover:text-amber-600 dark:hover:text-amber-400"><FaGithub size={18} /> github.com/MayankRai89</a>
+                <a href={LEETCODE_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 transition hover:text-amber-600 dark:hover:text-amber-400"><SiLeetcode size={18} /> leetcode.com/u/MayankRai89</a>
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 transition hover:text-amber-600 dark:hover:text-amber-400"><FaLinkedin size={18} /> linkedin.com/in/mayank-rai-4509581b0</a>
               </div>
             </div>
             <form className="space-y-4 rounded-[2rem] border border-stone-200 bg-stone-100/50 p-6 dark:border-white/10 dark:bg-transparent">

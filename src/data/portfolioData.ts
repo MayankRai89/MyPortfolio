@@ -9,7 +9,26 @@ import {
 import { FaServer, FaDatabase, FaJava, FaBrain, FaAws, FaChartLine } from 'react-icons/fa'
 
 
-export const RESUME_URL = 'https://drive.google.com/file/d/1TJp0xLJYq8bf-Ps0e_ARteMDWFc9-ggr/view?usp=drive_link'
+export const RESUME_URL = 'https://drive.google.com/file/d/1UHF6YglQ6stM7g7LSF8zVm-0yQyqqFZ8/view?usp=drive_link'
+export const GITHUB_USERNAME = 'MayankRai89'
+export const LEETCODE_USERNAME = 'MayankRai89'
+export const GITHUB_URL = 'https://github.com/MayankRai89'
+export const LEETCODE_URL = 'https://leetcode.com/u/MayankRai89/'
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/mayank-rai-4509581b0'
+export const EMAIL_URL = 'mailto:raimayank245@gmail.com'
+
+export const LEETCODE_STATS = {
+  totalSolved: 217,
+  easySolved: 141,
+  mediumSolved: 66,
+  hardSolved: 10,
+  ranking: 777453,
+  badges: 1,
+  badgeName: '50 Days Badge 2026',
+  submissionsPastYear: 318,
+  activeDays: 115,
+  maxStreak: 12,
+}
 
 export type SkillGroup = {
   title: string
