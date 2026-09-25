@@ -120,6 +120,7 @@ export const frontendProjects: Project[] = [
     features: ['3D interactive components', 'Proximity magnification text', 'Lenis scroll integration'],
     stack: ['React', 'Tailwind CSS', 'Framer Motion', 'Three.js'],
     accent: 'from-amber-600/15 to-orange-700/15',
+    liveUrl: 'https://my-portfolio-two-lovat-15.vercel.app/',
   },
   {
     title: 'Interactive Admin Dashboard',
