@@ -16,6 +16,7 @@ export const GITHUB_URL = 'https://github.com/MayankRai89'
 export const LEETCODE_URL = 'https://leetcode.com/u/MayankRai89/'
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/mayank-rai-4509581b0'
 export const EMAIL_URL = 'mailto:raimayank245@gmail.com'
+export const WEB3FORMS_ACCESS_KEY = '5853e721-ca29-4ac1-ad41-fc6e6a2c8531'
 
 export const LEETCODE_STATS = {
   totalSolved: 217,
