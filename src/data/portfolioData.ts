@@ -140,6 +140,7 @@ export const backendProjects: Project[] = [
     features: ['Agent workflows', 'Persistent memory', 'Context-aware reminders'],
     stack: ['FastAPI', 'PostgreSQL', 'Redis', 'LangChain'],
     accent: 'from-orange-600/15 to-amber-600/15',
+    githubUrl: 'https://github.com/MayankRai89/AI-Life-manager'
   },
   {
     title: 'SEEDHI',
